@@ -43,7 +43,5 @@ class TestStack(unittest.TestCase):
         # assert that an exception raised when peek operation is done
         # on an empty stack
         self.assertRaises(IndexError, lambda: stack.peek())
-
-
-if __name__ == '__main__':
-    unittest.main()
+        # with self.assertRaises(IndexError):
+        #     stack.peek()
