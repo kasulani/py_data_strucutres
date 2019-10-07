@@ -33,7 +33,10 @@ class BaseNode(object):
 
     @next.setter
     def next(self, node):
-        self._next = node
+        if isinstance(node, BaseNode):
+            self._next = node
+            return
+        raise TypeError("value is not of type BaseNode")
 
 
 class SingleNode(BaseNode):
