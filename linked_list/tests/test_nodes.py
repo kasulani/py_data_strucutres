@@ -48,3 +48,6 @@ class TestDoubleNode(unittest.TestCase):
         """ This test ensures the previous attribute of node points to another node instance """
         self.assertIsInstance(self._node.previous, DoubleNode)
         self.assertEqual(self._node.previous.data, self._prev_value)
+        with self.assertRaises(TypeError) as ctx:
+            self._node.next = "node"
+        self.assertEqual(str(ctx.exception), "value is not of type BaseNode")
