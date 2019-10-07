@@ -132,9 +132,6 @@ class DoublyLinkedList(LinkedList):
     def __init__(self):
         super().__init__()
         self._empty_node = EmptyNode()
-        self._head = self._empty_node
-        self._tail = self._empty_node
-        self._count = 0
 
     def __contains__(self, item):
         """
