@@ -19,6 +19,9 @@ class TestSingleNode(unittest.TestCase):
         """ This test ensures that the next attribute of the node points to another node """
         self.assertIsInstance(self._node.next, SingleNode)
         self.assertEqual(self._node.next.data, self._next_value)
+        with self.assertRaises(TypeError) as ctx:
+            self._node.next = 2
+        self.assertEqual(str(ctx.exception), "value is not of type BaseNode")
 
 
 class TestDoubleNode(unittest.TestCase):
