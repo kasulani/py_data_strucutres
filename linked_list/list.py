@@ -127,7 +127,7 @@ class LinkedList(Collection):
                 raise ValueError("item {} not found".format(item))
 
 
-class DoublyLinkedList(Collection):
+class DoublyLinkedList(LinkedList):
     """ This is a doubly linked list """
     def __init__(self):
         super().__init__()
@@ -213,21 +213,6 @@ class DoublyLinkedList(Collection):
             temp = self._head.next
             self._head = temp
             self._head.previous = self._empty_node  # set the previous attr for the new head to None
-            self._count -= 1
-        else:
-            raise ValueError("list is empty")
-
-    def remove_last_item(self):
-        """ Removes the last item in the chain of nodes """
-        # this operation is O(n)
-        if self._count > 0:
-            node = self._head  # move the pointer to the head
-            temp = None  # holds the node before tail node
-            while node != self._tail:
-                temp = node  # save the node before moving on to the next node in the chain
-                node = node.next
-            self._tail = temp  # this is the last node saved before reaching the tail
-            self._tail.next = self._empty_node  # remove the previous pointer to the previous tail
             self._count -= 1
         else:
             raise ValueError("list is empty")
