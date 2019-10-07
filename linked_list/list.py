@@ -5,7 +5,7 @@
 
     LINKED LISTS
 """
-from .nodes import SingleNode, DoubleNode
+from .nodes import SingleNode, DoubleNode, EmptyNode
 from collections.abc import Collection
 
 
@@ -13,8 +13,9 @@ class LinkedList(Collection):
     """ This is a singly linked list """
 
     def __init__(self):
-        self._head = None
-        self._tail = None
+        self._empty_node = EmptyNode()
+        self._head = self._empty_node
+        self._tail = self._empty_node
         self._count = 0
 
     def __contains__(self, item):
@@ -39,8 +40,7 @@ class LinkedList(Collection):
         This method allows this collection to be used in for loops
         """
         node = self._head
-        while node is not None:
-            # yield the data stored by the node
+        while node != self._empty_node:
             yield node.data
             # reassign node to point the next attribute
             node = node.next
@@ -98,7 +98,7 @@ class LinkedList(Collection):
                 temp = node  # save the node before moving on to the next node in the chain
                 node = node.next
             self._tail = temp  # this is the last node saved before reaching the tail
-            self._tail.next = None  # remove the previous pointer to the previous tail
+            self._tail.next = self._empty_node  # remove the previous pointer to the previous tail
             self._count -= 1
         else:
             raise ValueError("list is empty")
@@ -115,7 +115,7 @@ class LinkedList(Collection):
                         temp = self._head.next
                         self._head = temp
                     elif node == self._tail:  # handle case where the node is the tail
-                        prev.next = None
+                        prev.next = self._empty_node
                         self._tail = prev
                     else:  # handle the case when the node is in the middle
                         prev.next = node.next
