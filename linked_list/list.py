@@ -27,6 +27,7 @@ class LinkedList(Collection):
         while node is not None:
             if node.data == item:
                 found = True
+                break
             node = node.next
         return found
 
