@@ -64,3 +64,33 @@ class DoubleNode(SingleNode):
             self._previous = node
             return
         raise TypeError("value is not of type BaseNode")
+
+
+class EmptyNode(BaseNode):
+    """ This node is added to implement the null object pattern """
+
+    def __init__(self):
+        super().__init__(None)
+        pass
+
+    def __str__(self):
+        return "{}".format(self.data)
+
+    def __repr__(self):
+        return "Empty Node"
+
+    @property
+    def data(self):
+        return self._data
+
+    @data.setter
+    def data(self, _data):
+        raise ValueError("can't assign a data to an empty node")
+
+    @property
+    def next(self):
+        return self._next
+
+    @next.setter
+    def next(self, node):
+        raise ValueError("can't assign a node to an empty node")
