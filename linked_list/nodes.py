@@ -60,5 +60,7 @@ class DoubleNode(SingleNode):
 
     @previous.setter
     def previous(self, node=None):
-        self._previous = node
-
+        if isinstance(node, BaseNode):
+            self._previous = node
+            return
+        raise TypeError("value is not of type BaseNode")
