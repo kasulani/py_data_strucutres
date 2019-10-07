@@ -41,3 +41,4 @@ class TestPriorityQueue(unittest.TestCase):
         self.assertEqual(self._queue.count, self._expected_count)
         self.assertEqual(self._queue.peek(), 0)
         self.assertEqual(self._queue.dequeue(), 0)
+        self.assertEqual(self._queue.count, self._expected_count - 1)
