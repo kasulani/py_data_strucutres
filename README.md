@@ -11,7 +11,7 @@ python.
 "Code without tests is broken as designed", said  [Jacob Kaplan-Moss](https://jacobian.org/writing/django-apps-with-buildout/#s-create-a-test-wrapper). Therefore i shall not give you code that
 can not be tested or has no tests. So, to run tests, enter the following command
 ```sh 
-    $ python python -m unittest
+    $ python -m unittest
 ```
 ## Running the examples
 Each data structure has a problem it solves and these are in the root directory as examples.
