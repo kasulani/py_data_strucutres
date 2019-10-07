@@ -41,7 +41,7 @@ class SingleNode(BaseNode):
     pass
 
 
-class DoubleNode(BaseNode):
+class DoubleNode(SingleNode):
     """ The Double Node is the basic building block for a doubly linked list """
 
     def __init__(self, _data=None):
